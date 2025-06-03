@@ -3,54 +3,50 @@ import java.util.Iterator;
 
 public class GestorTurnos {
     public static void main(String[] args) {
-        ArrayList<Paciente> a = new ArrayList<>();
+        ArrayList<Paciente> Consulta = new ArrayList<>();
 
         // Añadir pacientes
-        Paciente x = new Paciente("Fernando", "Esguince", 2);
-        Paciente y = new Paciente("Emilia", "Resfriado", 3);
-        Paciente z = new Paciente("Pedro", "Infarto", 1);
-        a.add(x);
-        a.add(y);
-        a.add(z);
-
+        public void añadirPacientes() {
+            Consulta.add(P1);
+            Consulta.add(P2);
+            Consulta.add(P3);
+        }
         // Mostrar siguiente paciente (el de mayor prioridad)
-        for (int p = 1; p <= 3; p++) {
-            for (Paciente q : a) {
-                if (q.getPrioridad() == p) {
-                    System.out.println("Siguiente: " + q.getNombre());
-                    p = 4;
-                    break;
+        public static void mostrarSiguientePaciente(ArrayList<Paciente> lista) {
+            for (int prioridad = 1; prioridad <= 3; prioridad++) {
+                for (Paciente p : lista) {
+                    if (p.getPrioridad() == prioridad) {
+                        System.out.println("Siguiente: " + p.getNombre());
+                        return;
+                    }
                 }
             }
+            System.out.println("No hay pacientes en espera.");
         }
+
 
         // Contar pacientes de prioridad 1
-        int b = 1;
-        int c = 0;
-        for (Paciente d : a) {
-            if (d.getPrioridad() == b) {
-                c++;
+        public static int contarPorPrioridad(ArrayList<Paciente> lista, int prioridad) {
+            int contador = 0;
+            for (Paciente p : lista) {
+                if (p.getPrioridad() == prioridad) {
+                    contador++;
+                }
             }
+            return contador;
         }
-        System.out.println("Total de " + b + ": " + c);
+
 
         // Eliminar paciente por nombre
-        String e = "Pedro";
-        boolean f = false;
-        Iterator<Paciente> g = a.iterator();
-        while (g.hasNext()) {
-            Paciente h = g.next();
-            if (h.getNombre().equalsIgnoreCase(e)) {
-                g.remove();
-                f = true;
-                break;
+        public static boolean cancelarTurnoPorNombre(ArrayList<Paciente> lista, String nombreBuscado) {
+            Iterator<Paciente> iterator = lista.iterator();
+            while (iterator.hasNext()) {
+                Paciente p = iterator.next();
+                if (p.getNombre().equalsIgnoreCase(nombreBuscado)) {
+                    iterator.remove();
+                    return true;
+                }
             }
-        }
-
-        if (f) {
-            System.out.println("Eliminado: " + e);
-        } else {
-            System.out.println("No encontrado: " + e);
+            return false;
         }
     }
-}
