@@ -12,9 +12,9 @@ public class GestorTurnos {
             Consulta.add(P3);
         }
         // Mostrar siguiente paciente (el de mayor prioridad)
-        public static void mostrarSiguientePaciente(ArrayList<Paciente> lista) {
+        public static void mostrarSiguientePaciente(ArrayList<Paciente> Consulta) {
             for (int prioridad = 1; prioridad <= 3; prioridad++) {
-                for (Paciente p : lista) {
+                for (Paciente p : Consulta) {
                     if (p.getPrioridad() == prioridad) {
                         System.out.println("Siguiente: " + p.getNombre());
                         return;
@@ -26,9 +26,9 @@ public class GestorTurnos {
 
 
         // Contar pacientes de prioridad 1
-        public static int contarPorPrioridad(ArrayList<Paciente> lista, int prioridad) {
+        public static int contarPorPrioridad(ArrayList<Paciente> Consulta, int prioridad) {
             int contador = 0;
-            for (Paciente p : lista) {
+            for (Paciente p : Consulta) {
                 if (p.getPrioridad() == prioridad) {
                     contador++;
                 }
@@ -38,8 +38,8 @@ public class GestorTurnos {
 
 
         // Eliminar paciente por nombre
-        public static boolean cancelarTurnoPorNombre(ArrayList<Paciente> lista, String nombreBuscado) {
-            Iterator<Paciente> iterator = lista.iterator();
+        public static boolean cancelarTurnoPorNombre(ArrayList<Paciente> Consulta, String nombreBuscado) {
+            Iterator<Paciente> iterator = Consulta.iterator();
             while (iterator.hasNext()) {
                 Paciente p = iterator.next();
                 if (p.getNombre().equalsIgnoreCase(nombreBuscado)) {
