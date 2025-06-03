@@ -62,5 +62,6 @@ Una vez completada la implementación inicial, el código se ha refactorizado pa
 
 ## Gestión de pruebas y errores
 Hemos refactorizado una clase en modo bloque que estaba poco modularizada y se ha dividido en métodos específicos.
-Errores: Los métodos se encontraban en el main y los hemos sacado para que no diesen errores
-Las clases no se encontraban en Source Root con lo que se han movido para que los test pudiesen ejecutar las clases correctamente.
+Errores:
+- Los métodos se encontraban en el main y los hemos sacado para que no diesen errores
+- Las clases no se encontraban en Source Root con lo que se han movido para que los test pudiesen ejecutar las clases correctamente.
